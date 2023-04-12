@@ -1,0 +1,12 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c+c1}{\PYGZsh{}Naive Bayes}
+\PYG{o}{\PYGZgt{}\PYGZgt{}}\PYG{n}{nb\PYGZus{}model} \PYG{o}{=} \PYG{n}{MultinomialNB}\PYG{p}{()}
+\PYG{c+c1}{\PYGZsh{}Suppor vector Machine}
+\PYG{o}{\PYGZgt{}\PYGZgt{}}\PYG{n}{svm\PYGZus{}model} \PYG{o}{=} \PYG{n}{LinearSVC}\PYG{p}{()}
+\PYG{c+c1}{\PYGZsh{}Logistic Regression}
+\PYG{o}{\PYGZgt{}\PYGZgt{}}\PYG{n}{lr\PYGZus{}model} \PYG{o}{=} \PYG{n}{LogisticRegression}\PYG{p}{()}
+	
+\PYG{c+c1}{\PYGZsh{}Model Whicn combines them}
+\PYG{o}{\PYGZgt{}\PYGZgt{}}\PYG{n}{ensemble\PYGZus{}model} \PYG{o}{=} \PYG{n}{VotingClassifier}\PYG{p}{(}\PYG{n}{estimators}\PYG{o}{=}\PYG{p}{[(}\PYG{l+s+s1}{\PYGZsq{}nb\PYGZsq{}}\PYG{p}{,}\PYG{o}{\PYGZgt{}\PYGZgt{}}\PYG{n}{nb\PYGZus{}model}\PYG{p}{),}
+\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}svm\PYGZsq{}}\PYG{p}{,} \PYG{n}{svm\PYGZus{}model}\PYG{p}{),} \PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}lr\PYGZsq{}}\PYG{p}{,} \PYG{n}{lr\PYGZus{}model}\PYG{p}{)],}\PYG{o}{\PYGZgt{}\PYGZgt{}}\PYG{n}{voting}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}hard\PYGZsq{}}\PYG{p}{)}
+\end{Verbatim}

@@ -1,0 +1,3 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{o}{\PYGZgt{}\PYGZgt{}} \PYG{n}{x\PYGZus{}train\PYGZus{}features} \PYG{o}{=} \PYG{n}{feature\PYGZus{}extraction}\PYG{o}{.}\PYG{n}{fit\PYGZus{}transform}\PYG{p}{(}\PYG{n}{x\PYGZus{}train}\PYG{p}{)}
+\end{Verbatim}

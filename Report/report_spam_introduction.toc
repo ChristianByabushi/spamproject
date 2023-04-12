@@ -1,0 +1,11 @@
+\babel@toc {english}{}\relax 
+\contentsline {part}{I\hspace {1em}Introduction}{3}{part.1}%
+\contentsline {part}{II\hspace {1em}Methodology and practices}{3}{part.2}%
+\contentsline {section}{\numberline {1}Defining the object and specification}{4}{section.1}%
+\contentsline {section}{\numberline {2}Preparing and exploring the data}{4}{section.2}%
+\contentsline {section}{\numberline {3}Model building}{6}{section.3}%
+\contentsline {section}{\numberline {4}Feature Extraction }{7}{section.4}%
+\contentsline {section}{\numberline {5}Initializing Models for predictions}{8}{section.5}%
+\contentsline {section}{\numberline {6}Evaluating the model}{8}{section.6}%
+\contentsline {section}{\numberline {7}Building a Predictive System}{9}{section.7}%
+\contentsline {part}{III\hspace {1em}Conclusion}{9}{part.3}%

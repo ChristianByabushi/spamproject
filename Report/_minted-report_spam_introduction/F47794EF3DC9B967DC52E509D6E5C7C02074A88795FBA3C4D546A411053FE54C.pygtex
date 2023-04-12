@@ -1,0 +1,22 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c+c1}{\PYGZsh{} Counts the number of spams and hams}
+\PYG{o}{\PYGZgt{}\PYGZgt{}} \PYG{n}{spam\PYGZus{}output} \PYG{o}{=} \PYG{n}{data\PYGZus{}email}\PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}Category\PYGZsq{}}\PYG{p}{]}\PYG{o}{.}\PYG{n}{to\PYGZus{}numpy}\PYG{p}{()}
+\PYG{n}{numberOfham}\PYG{o}{=}\PYG{l+m+mi}{0}
+\PYG{n}{numberOfSpam}\PYG{o}{=}\PYG{l+m+mi}{0}
+\PYG{k}{for} \PYG{n}{i} \PYG{o+ow}{in} \PYG{n}{spam\PYGZus{}output}\PYG{p}{:}
+	\PYG{k}{if} \PYG{n}{i}\PYG{o}{==}\PYG{l+s+s1}{\PYGZsq{}ham\PYGZsq{}}\PYG{p}{:}
+		\PYG{n}{numberOfham}\PYG{o}{+=}\PYG{l+m+mi}{1}
+	\PYG{k}{else}\PYG{p}{:}
+		\PYG{n}{numberOfSpam}\PYG{o}{+=}\PYG{l+m+mi}{1}
+\PYG{n}{counts} \PYG{o}{=} \PYG{p}{[}\PYG{n}{numberOfham}\PYG{p}{,}\PYG{n}{numberOfSpam}\PYG{p}{]}
+\PYG{c+c1}{\PYGZsh{} create arrayofvalues}
+\PYG{n}{spam\PYGZus{}output} \PYG{o}{=} \PYG{n}{data\PYGZus{}email}\PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}Category\PYGZsq{}}\PYG{p}{]}\PYG{o}{.}\PYG{n}{to\PYGZus{}numpy}\PYG{p}{()}
+
+\PYG{c+c1}{\PYGZsh{} create a bar chart}
+\PYG{n}{labels} \PYG{o}{=} \PYG{p}{[}\PYG{l+s+s2}{\PYGZdq{}Ham\PYGZdq{}}\PYG{p}{,} \PYG{l+s+s2}{\PYGZdq{}Spam\PYGZdq{}}\PYG{p}{]}
+\PYG{n}{plt}\PYG{o}{.}\PYG{n}{bar}\PYG{p}{(}\PYG{n}{labels}\PYG{p}{,} \PYG{n}{counts}\PYG{p}{)}
+\PYG{n}{plt}\PYG{o}{.}\PYG{n}{xlabel}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}Spam and Ham\PYGZdq{}}\PYG{p}{)}
+\PYG{n}{plt}\PYG{o}{.}\PYG{n}{ylabel}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}Number of message\PYGZdq{}}\PYG{p}{)}
+\PYG{n}{plt}\PYG{o}{.}\PYG{n}{title}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}Graphic of messages\PYGZdq{}}\PYG{p}{)}
+\PYG{n}{plt}\PYG{o}{.}\PYG{n}{show}\PYG{p}{()}
+\end{Verbatim}

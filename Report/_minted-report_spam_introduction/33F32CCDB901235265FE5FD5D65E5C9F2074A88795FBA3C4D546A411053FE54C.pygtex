@@ -1,0 +1,10 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{o}{\PYGZgt{}\PYGZgt{}} \PYG{n}{input\PYGZus{}text} \PYG{o}{=} \PYG{n+nb}{input}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}Enter your mail here: \PYGZdq{}}\PYG{p}{)}
+\PYG{o}{\PYGZgt{}\PYGZgt{}} \PYG{n}{input\PYGZus{}vector} \PYG{o}{=} \PYG{n}{feature\PYGZus{}extraction}\PYG{o}{.}\PYG{n}{transform}\PYG{p}{([}\PYG{n}{input\PYGZus{}text}\PYG{p}{])}
+\PYG{o}{\PYGZgt{}\PYGZgt{}} \PYG{n}{prediction} \PYG{o}{=} \PYG{n}{ensemble\PYGZus{}model}\PYG{o}{.}\PYG{n}{predict}\PYG{p}{(}\PYG{n}{input\PYGZus{}vector}\PYG{p}{)[}\PYG{l+m+mi}{0}\PYG{p}{]}
+
+\PYG{o}{\PYGZgt{}\PYGZgt{}} \PYG{k}{if} \PYG{n}{prediction} \PYG{o}{==} \PYG{l+m+mi}{0}\PYG{p}{:}
+	\PYG{n+nb}{print}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}This is a spam message\PYGZdq{}}\PYG{p}{)}
+\PYG{o}{\PYGZgt{}\PYGZgt{}} \PYG{k}{else}\PYG{p}{:}
+\PYG{o}{\PYGZgt{}\PYGZgt{}}      \PYG{n+nb}{print}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}This is not a spam message\PYGZdq{}}\PYG{p}{)}
+\end{Verbatim}

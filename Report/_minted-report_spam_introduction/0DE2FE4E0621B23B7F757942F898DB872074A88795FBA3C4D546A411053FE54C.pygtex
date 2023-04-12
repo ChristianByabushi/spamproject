@@ -1,0 +1,3 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{o}{\PYGZgt{}\PYGZgt{}} \PYG{n}{ensemble\PYGZus{}model}\PYG{o}{.}\PYG{n}{fit}\PYG{p}{(}\PYG{n}{x\PYGZus{}train\PYGZus{}features}\PYG{p}{,} \PYG{n}{y\PYGZus{}train}\PYG{p}{)}
+\end{Verbatim}

@@ -1,0 +1,18 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c+c1}{\PYGZsh{}Install independencies}
+\PYG{k+kn}{from} \PYG{n+nn}{sklearn.naive\PYGZus{}bayes} \PYG{k+kn}{import} \PYG{n}{MultinomialNB}
+\PYG{k+kn}{from} \PYG{n+nn}{sklearn.svm} \PYG{k+kn}{import} \PYG{n}{LinearSVC}
+\PYG{k+kn}{from} \PYG{n+nn}{sklearn.linear\PYGZus{}model} \PYG{k+kn}{import} \PYG{n}{LogisticRegression}
+\PYG{k+kn}{from} \PYG{n+nn}{sklearn.ensemble} \PYG{k+kn}{import} \PYG{n}{VotingClassifier}
+\PYG{k+kn}{from} \PYG{n+nn}{sklearn.feature\PYGZus{}extraction.text} \PYG{k+kn}{import} \PYG{n}{TfidfVectorizer}
+\PYG{k+kn}{from} \PYG{n+nn}{sklearn.metrics} \PYG{k+kn}{import} \PYG{n}{accuracy\PYGZus{}score}\PYG{p}{,}
+\PYG{n}{precision\PYGZus{}score}\PYG{p}{,} \PYG{n}{recall\PYGZus{}score}\PYG{p}{,} \PYG{n}{f1\PYGZus{}score}
+\PYG{k+kn}{from} \PYG{n+nn}{sklearn.model\PYGZus{}selection} \PYG{k+kn}{import} \PYG{n}{train\PYGZus{}test\PYGZus{}split}
+\PYG{k+kn}{import} \PYG{n+nn}{numpy} \PYG{k}{as} \PYG{n+nn}{np}
+\PYG{k+kn}{import} \PYG{n+nn}{pandas} \PYG{k}{as} \PYG{n+nn}{pd}
+
+\PYG{c+c1}{\PYGZsh{}The codes that serve to import now the data are follows:}
+\PYG{n}{data\PYGZus{}email} \PYG{o}{=} \PYG{n}{pd}\PYG{o}{.}\PYG{n}{read\PYGZus{}csv}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}mail\PYGZus{}data.csv\PYGZsq{}}\PYG{p}{)}
+\PYG{c+c1}{\PYGZsh{}To get the simple overview of the dataset}
+\PYG{n}{data\PYGZus{}email}\PYG{o}{.}\PYG{n}{head}\PYG{p}{()}
+\end{Verbatim}

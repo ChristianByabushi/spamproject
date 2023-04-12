@@ -1,0 +1,18 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c+c1}{\PYGZsh{}Evaluating models by predicting the test values and then compare to the y\PYGZus{}test}
+\PYG{c+c1}{\PYGZsh{} compute evaluation metrics}
+\PYG{o}{\PYGZgt{}\PYGZgt{}} \PYG{n}{predictions} \PYG{o}{=} \PYG{n}{ensemble\PYGZus{}model}\PYG{o}{.}\PYG{n}{predict}\PYG{p}{(}\PYG{n}{x\PYGZus{}test\PYGZus{}features}\PYG{p}{)}
+
+\PYG{o}{\PYGZgt{}\PYGZgt{}} \PYG{n}{acc\PYGZus{}score} \PYG{o}{=} \PYG{n}{accuracy\PYGZus{}score}\PYG{p}{(}\PYG{n}{y\PYGZus{}test}\PYG{p}{,} \PYG{n}{predictions}\PYG{p}{)}
+\PYG{o}{\PYGZgt{}\PYGZgt{}} \PYG{n}{prec\PYGZus{}score} \PYG{o}{=} \PYG{n}{precision\PYGZus{}score}\PYG{p}{(}\PYG{n}{y\PYGZus{}test}\PYG{p}{,} \PYG{n}{predictions}\PYG{p}{,} \PYG{n}{pos\PYGZus{}label}\PYG{o}{=}\PYG{l+m+mi}{0}\PYG{p}{)}
+\PYG{o}{\PYGZgt{}\PYGZgt{}} \PYG{n}{rec\PYGZus{}score} \PYG{o}{=} \PYG{n}{recall\PYGZus{}score}\PYG{p}{(}\PYG{n}{y\PYGZus{}test}\PYG{p}{,} \PYG{n}{predictions}\PYG{p}{,} \PYG{n}{pos\PYGZus{}label}\PYG{o}{=}\PYG{l+m+mi}{0}\PYG{p}{)}
+\PYG{o}{\PYGZgt{}\PYGZgt{}} \PYG{n}{f1} \PYG{o}{=} \PYG{n}{f1\PYGZus{}score}\PYG{p}{(}\PYG{n}{y\PYGZus{}test}\PYG{p}{,} \PYG{n}{predictions}\PYG{p}{,} \PYG{n}{pos\PYGZus{}label}\PYG{o}{=}\PYG{l+m+mi}{0}\PYG{p}{)}
+\PYG{o}{\PYGZgt{}\PYGZgt{}} \PYG{n+nb}{print}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}Accuracy score:\PYGZdq{}}\PYG{p}{,} \PYG{n}{acc\PYGZus{}score}\PYG{p}{)}
+\PYG{o}{\PYGZgt{}\PYGZgt{}} \PYG{n+nb}{print}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}Precision score:\PYGZdq{}}\PYG{p}{,} \PYG{n}{prec\PYGZus{}score}\PYG{p}{)}
+\PYG{o}{\PYGZgt{}\PYGZgt{}} \PYG{n+nb}{print}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}Recall score:\PYGZdq{}}\PYG{p}{,} \PYG{n}{rec\PYGZus{}score}\PYG{p}{)}
+\PYG{o}{\PYGZgt{}\PYGZgt{}} \PYG{n+nb}{print}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}F1 score:\PYGZdq{}}\PYG{p}{,} \PYG{n}{f1}\PYG{p}{)}
+\PYG{n}{Accuracy} \PYG{n}{score}\PYG{p}{:} \PYG{l+m+mf}{0.979372197309417}
+\PYG{n}{Precision} \PYG{n}{score}\PYG{p}{:} \PYG{l+m+mf}{1.0}
+\PYG{n}{Recall} \PYG{n}{score}\PYG{p}{:} \PYG{l+m+mf}{0.8516129032258064}
+\PYG{n}{F1} \PYG{n}{score}\PYG{p}{:} \PYG{l+m+mf}{0.9198606271777003}
+\end{Verbatim}

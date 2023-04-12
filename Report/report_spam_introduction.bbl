@@ -1,0 +1,47 @@
+\begin{thebibliography}{1}
+
+\bibitem{introducgtionMlAlpay}
+E.~Alpaydin.
+\newblock Introduction to machine learning (2nd ed.).
+\newblock page~25, 2010.
+
+\bibitem{mlwithpython}
+Julian David.
+\newblock Designing machine learning systems with python.
+\newblock {\em Community Experience Distilled}, pages 381--386, April 2016.
+
+\bibitem{geron2022hands}
+Aur{\'e}lien G{\'e}ron.
+\newblock {\em Hands-on machine learning with Scikit-Learn, Keras, and
+  TensorFlow}.
+\newblock " O'Reilly Media, Inc.", 2022.
+
+\bibitem{han2022data}
+Jiawei Han, Jian Pei, and Hanghang Tong.
+\newblock {\em Data mining: concepts and techniques}.
+\newblock Morgan kaufmann, 2022.
+
+\bibitem{raschka2017python}
+Sebastian Raschka and Vahid Mirjalili.
+\newblock Python machine learning: Machine learning and deep learning with
+  python.
+\newblock {\em Scikit-Learn, and TensorFlow. Second edition ed}, 3, 2017.
+
+\bibitem{fetAnjali2018}
+Anjali Sharma and Pradeep Kumar.
+\newblock Feature extraction techniques in machine learning: A review.
+\newblock Volume 179 - No.27, 2018.
+
+\bibitem{FeatuareSpaceSoltani}
+S.Soltani and Al.
+\newblock Feature space and feature extraction".
+\newblock {\em International Journal of Computer Science and Information
+  Security}, vol. 10, no. 2.
+
+\bibitem{unwin2020data}
+Antony Unwin.
+\newblock Why is data visualization important? what is important in data
+  visualization?
+\newblock {\em Harvard Data Science Review}, 2(1):1, 2020.
+
+\end{thebibliography}
