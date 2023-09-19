@@ -1,0 +1,100 @@
+{% extends 'indexu.html' %}
+{% block contents %}
+{%load static %}
+<section class="dataspam">
+    <div class="container">
+        <h2 class="heading">Messages reçus</h2>
+        <form class="form-message" method="get">
+            <div class="input-search">
+                <input type="text" placeholder="Search in message" class="msg">
+                <button id="btn-submit-msg" class="btn" type="submit"><i id="search-icon"
+                        class='bx bx-search-alt-2'></i></button>
+            </div>
+            <a href="/download_csv/" class="btn"><i class="fa fa-download"></i>
+                CSV</a>
+        </form>
+
+        <div class="table-responsive">
+            <table class="table table-bordered table-striped mt-1">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>SenderNumber</th>
+                        <th>Message</th>
+                        <th>Date création</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for msg in messages %}
+                    <tr>
+                        <td>{{ msg.id }}</td>
+                        <td>{{ msg.contact }}</td>
+                        <td>{{ msg.message }}</td>
+                        <td>{{ msg.createat }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <div>
+            <nav aria-label="Page navigation">
+                <ul class="pagination">
+                    {% if messages.has_previous %}
+                    <li class="page-item">
+                        <a class="page-link"
+                            href="?page={{ persons.previous_page_number }}{% if first_name_query %}&first_name_query={{ first_name_query }}{% endif %}"
+                            aria-label="Previous">
+                            <span aria-hidden="true">&laquo;</span>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                    </li>
+                    {% endif %}
+                    {% for i in messages.paginator.page_range %}
+                    {% if messages.number == i %}
+                    <li class="page-item active"><a class="page-link" href="#">{{ i }} <span
+                                class="sr-only">(current)</span></a></li>
+                    {% else %}
+                    <li class="page-item"><a class="page-link"
+                            href="?page={{ i }} {% if first_name_query %}&first_name_query={{ first_name_query }}{% endif %}">{{i}}</a>
+                    </li>
+                    {% endif %}
+                    {% endfor %}
+
+                    {% if messages.has_next %}
+                    <li class="page-item">
+                        <a class="page-link"
+                            href="?page={{ messages.next_page_number }}{% if first_name_query %}&first_name_query={{ first_name_query }}{% endif %}"
+                            aria-label="Next">
+                            <span aria-hidden="true">&raquo;</span>
+                            <span class="sr-only">Next</span>
+                        </a>
+                    </li>
+                    {% endif %}
+                </ul>
+            </nav>
+        </div>
+
+    </div>
+</section>
+<style>
+    /* Basic styling for the pagination container */
+    nav.pagination {
+        display: flex;
+        justify-content: center;
+        margin-top: 20px;
+    }
+
+    /* Styling for pagination list items */
+    ul.pagination {
+        list-style: none;
+        padding: 0;
+    }
+
+    /* Styling for individual pagination items */
+    ul.pagination li {
+        display: inline-block;
+        margin: 0 2px;
+        font-size: 2rem; 
+    }
+</style>
+{% endblock %}

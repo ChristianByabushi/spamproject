@@ -1,0 +1,78 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SpamCollectApp</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link href="{% static 'assets/img/spam.jpeg' %}" rel="icon">
+
+    <!-- Template Main CSS File -->
+    <link href="{% static 'assets/css/styleu.css' %}" rel="stylesheet">
+
+    <!-- Scroll reveal -->
+    <script src="https://unpkg.com/scrollreveal"></script>
+
+    <!-- jquery file link  -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+
+   
+</head>
+
+<body>
+    {% include 'headeru.html' %}
+
+    {% block contents %}
+    <!-- all templates will be generated here -->
+    {% include 'mainpage.html' %}
+
+    {% endblock %}
+
+    {% include 'footeru.html' %}
+
+    <!-- JS file -->
+    <script src="{% static 'assets/js/scriptjs.js' %}"></script>
+
+</body>
+
+</html>
+
+<style>
+    #loading-animation {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(238, 232, 232, 0.7);
+        display: none;
+        z-index: 9999;
+    }
+
+    .spinner {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        border: 5px solid #f3f3f3;
+        border-top: 5px solid #3498db;
+        border-radius: 50%;
+        width: 30px;
+        height: 30px;
+        animation: spin 1s linear infinite;
+    }
+
+    /* Animation keyframes */
+    @keyframes spin {
+        0% {
+            transform: translate(-50%, -50%) rotate(0deg);
+        }
+
+        100% {
+            transform: translate(-50%, -50%) rotate(360deg);
+        }
+    }
+</style>
