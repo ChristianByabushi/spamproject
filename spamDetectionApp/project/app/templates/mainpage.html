@@ -1,0 +1,160 @@
+{% load static %}
+<section class="home" id="home">
+    <div class="home-content">
+        <h3>Bonjour! c'est</h3>
+        <h1> <span>SpamCollectApp</span></h1>
+        <h3>Une plateforme de collecte des spams</h3>
+        <p>C'est quoi un spam ? C'est un message indésirable envoyé par un utilisateur ou un service se servant un
+            numéro connu ou
+            inconnu,qui est du genre à vous tourmenter, ménacer ou meme hacker. Signalez ce type en les complétant
+            par copier et coller sur le formulaire ou soit écrivez les manuellement</p>
+        <div class="form">
+            <form id="formSpam">
+                {% csrf_token %}
+                <h3>Formulaire de <span>collecte</span></h3>
+                <input type="text" name="contact" required class="input-box" placeholder="Contact ou numero du spam">
+                <textarea name="message" id="" required cols="30" rows="10" placeholder="Message spam"></textarea>
+                <div style="display: flex; justify-content: center;">
+                    <button type="submit" id="submitBtn" class="btn">Envoyer</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- <div class="home-img">
+        <img src="img/spam.jpg" alt="not found">
+    </div>  -->
+
+</section>
+
+<section class="about" id="about">
+    <div class="about-content">
+        <h2 class="heading">About <span>SpamCollectApp</span></h2>
+        <h3>Travail de recherche</h3>
+        <p>
+            Le projet SpamCollectApp est l'auteur de l'étudiant Murhula Byabushi Christian de la deuxième année de
+            Licence
+            en Réseaux et Télécommunications à l'université Catholique de Bukavu qui veut parfaire son travail de
+            mémoire. <br>
+            Cette plateforme qui sert dans la collecte des données peut etre utilisées n'importe quand. Elle sert à
+            recevoir les messages indésirables.
+
+            <a href="https://chrisportfolio.onrender.com" class="btn">Read More</a>
+    </div>
+</section>
+
+<section class="contact" id="contact">
+    <h2 class="heading">Contactez <span>Nous</span></h2>
+    <form id="formFeedback" method="POST">
+        {% csrf_token %}
+        <div class="input-box">
+            <input type="text" required placeholder="Full Name" name="name">
+            <input type="email" placeholder="Email Adress" name="email">
+        </div>
+        <div class="input-box">
+            <input type="number" required placeholder="Mobile Number" name="number">
+            <input type="text" required  placeholder="Subject"  name="subject">
+        </div>
+        <textarea name="content" id="" cols="30" required rows="10" placeholder="Your Message"
+            name="message"></textarea>
+        <input type="submit" id="submitFeedBack" value="Send Message" class="btn">
+    </form>
+</section>
+
+{% include "modal.html" %}
+
+<script>
+    $(document).ready(function () {
+        var submitButton = $('#submitBtn');
+        $('#formSpam').submit(function (event) {
+            event.preventDefault();
+            var crsfToken = $('input[name="csrfmiddlewaretoken"]').val()
+            var formData = {
+                contact: $('#formSpam input[name="contact"]').val(),
+                message: $('#formSpam textarea[name="message"]').val(),
+            }
+
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRFToken': crsfToken
+                }
+            })
+
+            submitButton.attr('disabled', 'disabled').text('Envoie en cours ...');
+
+            $.ajax({
+                url: 'message/',
+                type: 'POST',
+                data: formData,
+                success: function (response) {
+                    if (response.message == "success") {
+                        submitButton.removeAttr('disabled');
+                        submitButton.text('Envoyer');
+                        $('#formSpam')[0].reset()
+                        setTimeout(function () {
+                            alert(`Merci pour le message indésirable envoyé, Vous pouvez envoyer autant d'autres que vous vouliez !`);
+                        }, 100);
+
+                    }
+                }
+                ,
+                error: function (xhr, errmsg, err) {
+                    console.log(xhr.status + ': ' + xhr.responseText)
+                },
+                complete: function () {
+                    // Hide loading spinner, enable submit button, and revert text
+                    submitButton.removeAttr('disabled').text('Envoyer');
+                }
+            })
+        })
+
+        //contact send-feeback
+        const submitFeedBack = $('#submitFeedBack');
+
+        $('#formFeedback').submit(function (event) {
+            event.preventDefault();
+            var crsfToken = $('input[name="csrfmiddlewaretoken"]').val()
+            var formData = {
+                name: $('#formFeedback input[name="name"]').val(),
+                subject: $('#formFeedback input[name="subject"]').val(),
+                email: $('#formFeedback input[name="email"]').val(),
+                content: $('#formFeedback textarea[name="content"]').val(),
+                number: $('#formFeedback input[name="number"]').val(),
+            }
+
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRFToken': crsfToken
+                }
+            })
+
+            submitFeedBack.attr('disabled', 'disabled')
+            submitFeedBack.val('Envoie en cours ...');
+
+            $.ajax({
+                url: 'send-feedback/',
+                type: 'POST',
+                data: formData,
+                success: function (response) {
+                    if (response.message == "success") {
+                        submitFeedBack.removeAttr('disabled');
+                        submitFeedBack.text('Envoyer');
+                        $('#formFeedback')[0].reset()
+                        setTimeout(function () {
+                            alert(`Merci pour nous avoir contacté !`);
+                        }, 100);
+                    } 
+                }
+                ,
+                error: function (xhr, errmsg, err) {
+                    console.log(xhr.status + ': ' + xhr.responseText)
+                },
+                complete: function () {
+                    // Hide loading spinner, enable submit button, and revert text
+                    submitFeedBack.removeAttr('disabled').val('Send Message');
+                }
+            })
+        })
+
+    })
+</script>

@@ -12,9 +12,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-60k6#yzjii0ttj3evlm^lsre%jp#_#u57ruv#zh0s6r3dg#q^p'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -28,6 +28,15 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'app',
 ]
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'premium263.web-hosting.com'
+EMAIL_USE_TLS = False
+EMAIL_PORT = 465
+EMAIL_USE_SSL = True
+EMAIL_HOST_USER = 'spamcollect@spam.kivu-cs.org'
+EMAIL_HOST_PASSWORD = 'christian0973'
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -111,7 +120,7 @@ STATIC_URL = 'static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static/"),
 ]
-# STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles_build', 'static') 
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfilesbuild', 'static') 
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
