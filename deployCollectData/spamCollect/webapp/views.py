@@ -10,7 +10,13 @@ from django.core.paginator import Paginator
 import csv
 from django.contrib.auth import logout
 from .forms import SpamMessageForm, contactForm
-from .models import Contact, Messages, spamsMessage
+from .models import Contact, Messages, spamsMessage 
+from django.shortcuts import render, get_object_or_404
+from django.core.paginator import Paginator
+from django.http import JsonResponse
+from django.conf import settings
+from django.views import generic
+from  django.core.mail import EmailMessage, send_mail, get_connection
 # from .serializers import ContactSerializer, spamsMessageSerializer
 
 
@@ -35,7 +41,6 @@ def download_csv(request):
             ]
         )
     return response
-
 
 def statistic_views(request):
     query_set = spamsMessage.objects.all()
@@ -94,7 +99,39 @@ def contactView(request):
     # return Response(data=serializer_item.data, status=status.HTTP_201_CREATED) 
     if request.method == "POST":
         form = contactForm(request.POST)
-        if form.is_valid():
+        if form.is_valid(): 
+            # Prepare email message 
+            subject = form.cleaned_data["subject"]
+            name = form.cleaned_data["name"]
+            email = form.cleaned_data["email"]
+            message = (
+                f"<h3>Bonjour cher(e) {name}</h3> "
+                "<br>Nous sommes ravis d'avoir reçu votre feedback<br>"
+                "Notre équippé chargée de la préocuppation va vous repondre aussi incéssamment."
+            )
+            with get_connection(
+                host=settings.EMAIL_HOST,
+                port=settings.EMAIL_PORT,
+                username=settings.EMAIL_HOST_USER,
+                password=settings.EMAIL_HOST_PASSWORD,
+                use_tls=settings.EMAIL_USE_TLS,
+            ) as connection:
+                email_from = settings.EMAIL_HOST_USER
+                recipient_list = [email]
+                email_subject = subject
+                email_message = message
+
+                # Send email
+                email = EmailMessage(
+                    email_subject,
+                    email_message,
+                    email_from,
+                    recipient_list,
+                    connection=connection,
+                )
+                email.content_subtype = "html"
+                email.send()
+
             form.save()
             return JsonResponse({"message": "success"})
         else:

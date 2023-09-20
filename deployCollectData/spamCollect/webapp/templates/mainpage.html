@@ -108,10 +108,9 @@
             })
         })
 
-
-
         //contact send-feeback
-        var submitFeedBack = $('#submitFeedBack');
+        const submitFeedBack = $('#submitFeedBack');
+
         $('#formFeedback').submit(function (event) {
             event.preventDefault();
             var crsfToken = $('input[name="csrfmiddlewaretoken"]').val()
@@ -129,7 +128,8 @@
                 }
             })
 
-            submitFeedBack.attr('disabled', 'disabled').text('Envoie en cours ...');
+            submitFeedBack.attr('disabled', 'disabled')
+            submitFeedBack.val('Envoie en cours ...');
 
             $.ajax({
                 url: 'send-feedback/',
@@ -151,7 +151,7 @@
                 },
                 complete: function () {
                     // Hide loading spinner, enable submit button, and revert text
-                    submitFeedBack.removeAttr('disabled').text('Envoyer');
+                    submitFeedBack.removeAttr('disabled').val('Send Message');
                 }
             })
         })

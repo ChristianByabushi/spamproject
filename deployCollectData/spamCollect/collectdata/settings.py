@@ -40,8 +40,15 @@ INSTALLED_APPS = [
     'phonenumber_field',
     'webapp',
     'rest_framework',
-    'corsheaders',
 ]
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'premium263.web-hosting.com'
+EMAIL_USE_TLS = False
+EMAIL_PORT = 465
+EMAIL_USE_SSL = True
+EMAIL_HOST_USER = 'spamcollect@spam.kivu-cs.org'
+EMAIL_HOST_PASSWORD = 'christian0973'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -125,12 +132,13 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
 
 import os
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static/"),
 ]
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles_build', 'static') 
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
